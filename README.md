@@ -1,6 +1,8 @@
 # gitlab-runner
 # Download the binary for your system
+<pre>
 sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+</pre>
 
 # Give it permissions to execute
 sudo chmod +x /usr/local/bin/gitlab-runner
@@ -9,12 +11,15 @@ sudo chmod +x /usr/local/bin/gitlab-runner
 sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
 
 # Install and run as service
+<pre>
 sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
 sudo gitlab-runner start
 
 sudo gitlab-runner register --url https://gitlab.com/ --registration-token $REGISTRATION_TOKEN
+</pre>
 
 #error no host
+```
 gitlab-runner stop
 
 [[runners]]
@@ -38,9 +43,10 @@ gitlab-runner stop
     shm_size = 0
     
 gitlab-runner start
-
+```
 
 # ciyaml
+```
 stage-build:
   image: docker:18.09-dind
   stage: build
@@ -53,3 +59,4 @@ stage-build:
 
   script:
     - . .gitlab-deploy.sh "BUILD"
+```

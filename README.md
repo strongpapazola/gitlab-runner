@@ -1,4 +1,12 @@
-# gitlab-runner
+# gitlab-runner on docker
+```
+docker volume create gitlab-runner-config
+docker run -d --name gitlab-runner --restart always -v /var/run/docker.sock:/var/run/docker.sock -v gitlab-runner-config:/etc/gitlab-runner gitlab/gitlab-runner:latest
+docker run --rm -it -v gitlab-runner-config:/etc/gitlab-runner gitlab/gitlab-runner:latest register
+```
+
+
+# gitlab-runner on linux
 # Download the binary for your system
 <pre>
 sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
